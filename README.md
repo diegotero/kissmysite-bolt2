@@ -1,25 +1,12 @@
-[![CodeGuide](/codeguide-backdrop.svg)](https://codeguide.dev)
+# Starter Lite
 
-
-# CodeGuide Starter Lite
-
-A modern web application starter template built with Next.js 14, featuring authentication, database integration.
+A modern web application starter template built with Next.js 14.
 
 ## Tech Stack
 
 - **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
-- **Authentication:** [Clerk](https://clerk.com/)
-- **Database:** [Supabase](https://supabase.com/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
-
-## Prerequisites
-
-Before you begin, ensure you have the following:
-- Node.js 18+ installed
-- A [Clerk](https://clerk.com/) account for authentication
-- A [Supabase](https://supabase.com/) account for database
-- Generated project documents from [CodeGuide](https://codeguide.dev/) for best development experience
 
 ## Getting Started
 
@@ -57,33 +44,6 @@ Before you begin, ensure you have the following:
 5. **Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.**
 
 ## Configuration
-
-### Clerk Setup
-1. Go to [Clerk Dashboard](https://dashboard.clerk.com/)
-2. Create a new application
-3. Go to API Keys
-4. Copy the `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY`
-
-### Supabase Setup
-1. Go to [Supabase Dashboard](https://app.supabase.com/)
-2. Create a new project
-3. Go to Project Settings > API
-4. Copy the `Project URL` as `NEXT_PUBLIC_SUPABASE_URL`
-5. Copy the `anon` public key as `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-
-## Environment Variables
-
-Create a `.env` file in the root directory with the following variables:
-
-```env
-# Clerk Authentication
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key
-CLERK_SECRET_KEY=your_secret_key
-
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
 
 ## Features
 
