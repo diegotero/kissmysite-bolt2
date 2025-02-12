@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Optimiza el manejo de fuentes
-  optimizeFonts: true,
 
   // Configuración de imágenes
   images: {
@@ -40,4 +39,5 @@ const nextConfig = {
   },
 };
 
+// Forzar nueva compilación
 export default nextConfig;

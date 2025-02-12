@@ -1,6 +1,4 @@
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
-import Link from 'next/link'
 import { ServicesSection } from './services/services-section'
 import { ClientsSection } from './clients/clients-section'
 import { PartnersSection } from './partners/partners-section'
@@ -22,7 +20,7 @@ export default async function Home() {
             </h1>
             <p className="text-[24px] leading-[30.17px] tracking-[0%] text-gray-400 mb-8 font-['Source_Code_Pro']">Good people are good business</p>
             <Button className="hero-button bg-[#D74B7C] hover:bg-[#D74B7C]/90 text-white px-8 py-8 rounded-lg text-base font-bold font-['Open_Sans'] leading-[21.79px] tracking-[0%]">
-              Let's meet each other!
+              Let&apos;s meet each other!
             </Button>
           </div>
         </div>

@@ -2,7 +2,6 @@
 
 import { Story } from '@/types/story';
 import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
