@@ -25,6 +25,9 @@
   --input: 240 5.9% 90%;
   --ring: 346 77% 49%;
   --radius: 0.5rem;
+
+  --font-source-code-pro: 'Source Code Pro', monospace;
+  --font-open-sans: 'Open Sans', sans-serif;
 }
 
 .dark {
@@ -50,13 +53,13 @@
 }
 
 body {
-  font-family: 'Source Code Pro', monospace;
+  font-family: var(--font-source-code-pro);
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
 }
 
 .hero-button {
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--font-open-sans);
 }
 
 /* Hamburger Menu Animations */

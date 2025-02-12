@@ -6,8 +6,8 @@ export function PartnersSection() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="max-w-md">
-            <h2 className="text-[48px] font-bold mb-6 font-['Source_Code_Pro']">Partners</h2>
-            <p className="text-lg font-['Source_Code_Pro']">
+            <h2 className="text-[#1e1e1e] font-bold mb-6 font-['Source_Code_Pro']" style={{ fontWeight: 700, fontSize: '48px', lineHeight: '48px' }}>Partners</h2>
+            <p className="text-lg text-[#1e1e1e] font-['Source_Code_Pro']">
               When you trust people, yours and ours, amazing things can happen.
             </p>
           </div>

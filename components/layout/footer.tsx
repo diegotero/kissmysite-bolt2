@@ -4,9 +4,9 @@ import { Linkedin, Youtube } from 'lucide-react'
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden">
+    <footer className="relative overflow-hidden" style={{ background: 'radial-gradient(circle at 30% 120%, #643042, #572d3b, #4a2a34, #3d272e, #312427, #242021, #1e1e1e, #1e1e1e, #1e1e1e, #1e1e1e, #1e1e1e, #1e1e1e)' }}>
       {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1E1E1E] via-[#9C6B98] to-[#E8B4B4] opacity-90" />
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-[#1E1E1E] via-[#9C6B98] to-[#E8B4B4] opacity-90" /> */}
       
       <div className="container relative mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

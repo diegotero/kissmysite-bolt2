@@ -1,24 +1,24 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
-import './globals.css'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
+import { Source_Code_Pro, Open_Sans } from 'next/font/google';
+import './globals.css'; // Ensure this import is present and correct
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
+const sourceCodePro = Source_Code_Pro({
+  subsets: ['latin'],
+  variable: '--font-source-code-pro',
+  weight: ['400', '700'],
   display: 'swap',
   preload: true,
-})
+});
 
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  variable: '--font-open-sans',
+  weight: ['400', '700'],
   display: 'swap',
   preload: true,
-})
+});
 
 export const metadata: Metadata = {
   title: 'CodeGuide Starter Pro',
@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${sourceCodePro.variable} ${openSans.variable} antialiased`}>
         <Header />
         <main>{children}</main>
         <Footer />

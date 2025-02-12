@@ -7,7 +7,7 @@ export async function ClientsSection() {
   return (
     <section className="bg-white py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-[48px] font-bold text-center mb-12 font-['Source_Code_Pro']">
+        <h2 className="text-[#1e1e1e] font-bold text-center mb-12 font-['Source_Code_Pro']" style={{ fontWeight: 700, fontSize: '48px', lineHeight: '48px' }}>
           Clients who have already partnered with us
         </h2>
         
