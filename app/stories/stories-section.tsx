@@ -20,7 +20,7 @@ export function StoriesSection({ stories }: StoriesSectionProps) {
   return (
     <section className="bg-white py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-[#1e1e1e] font-bold text-center mb-4 font-['Source_Code_Pro']" style={{ fontWeight: 700, fontSize: '48px', lineHeight: '48px' }}>
+        <h2 className="text-[#1e1e1e] font-bold text-center mb-4 font-['Source_Code_Pro'] mx-auto max-w-3xl md:max-w-4xl" style={{ fontWeight: 700, fontSize: '48px', lineHeight: '48px', maxWidth: '70%' }}>
           Stories that make us proud
         </h2>
         <p className="text-center mb-12 max-w-3xl mx-auto text-lg font-['Open_Sans']" style={{ fontFamily: 'Open Sans', fontWeight: 400, fontSize: '20px', color: '#1e1e1e' }}>

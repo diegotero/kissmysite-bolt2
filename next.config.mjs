@@ -37,7 +37,6 @@ const nextConfig = {
   // Experimental features
   experimental: {
     // Disable memory watcher to prevent manual restart messages
-    memoryWatcher: false
   }
 };
 
