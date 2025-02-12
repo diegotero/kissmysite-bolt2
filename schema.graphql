@@ -1,0 +1,10 @@
+type Service {
+  id: ID! @id
+  title: String! @unique
+  description: String!
+  link: String!
+}
+
+type Query {
+  services: [Service!]! @readMany
+}
