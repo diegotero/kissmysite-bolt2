@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Linkedin, Youtube } from 'lucide-react'
+import dynamic from 'next/dynamic'
+
+const Linkedin = dynamic(() => import('lucide-react').then(mod => mod.Linkedin))
+const Youtube = dynamic(() => import('lucide-react').then(mod => mod.Youtube))
 
 export function Footer() {
   return (

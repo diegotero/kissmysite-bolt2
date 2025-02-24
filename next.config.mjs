@@ -1,24 +1,32 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Optimiza el manejo de fuentes
 
+// Configuración base de imágenes
+const imageConfig = {
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: 'us-west-2.graphassets.com',
+      port: '',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: 'us-west-2.cdn.hygraph.com',
+      port: '',
+      pathname: '/**',
+    },
+  ],
+  minimumCacheTTL: 60,
+  deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+  imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  formats: ['image/webp'],
+  dangerouslyAllowSVG: true,
+  contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
+};
+
+const nextConfig = {
   // Configuración de imágenes
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'us-west-2.graphassets.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'us-west-2.cdn.hygraph.com',
-        port: '',
-        pathname: '/**',
-      },
-    ],
-  },
+  images: imageConfig,
 
   // Configuración de webpack para manejar archivos estáticos
   webpack: (config, { isServer }) => {
@@ -35,9 +43,13 @@ const nextConfig = {
 
   // Experimental features
   experimental: {
-    // Disable memory watcher to prevent manual restart messages
+    scrollRestoration: true
   },
+
+  // Configuración de caché y rendimiento
+  generateEtags: true,
+  compress: true,
+  poweredByHeader: false
 };
 
-// Forzar nueva compilación
 export default nextConfig;
