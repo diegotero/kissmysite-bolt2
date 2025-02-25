@@ -7,14 +7,6 @@ import { Toaster } from '@/components/ui/toaster'
 export const metadata: Metadata = {
   title: 'Kiss My Site - Digital Marketing Agency',
   description: 'We combine creativity, data, media and technology to revolutionize the way brands inspire the world.',
-  icons: {
-    icon: [
-      {
-        url: '/favicon.ico',
-        sizes: 'any',
-      }
-    ],
-  },
 }
 
 export default function RootLayout({
