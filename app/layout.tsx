@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
+import { Toaster } from '@/components/ui/toaster'
 
 export const metadata: Metadata = {
   title: 'Kiss My Site - Digital Marketing Agency',
@@ -17,11 +18,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className="antialiased">
         <Header />
-        <main>{children}</main>
+        <main className="page-transition">{children}</main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   )

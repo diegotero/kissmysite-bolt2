@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
+import { LanguageSwitcher } from '@/components/language-switcher'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -19,7 +20,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-[#1F1F1F]">
       <div className="container mx-auto flex h-[96px] items-center justify-between px-4">
-        {/* Logo - Reduced size to 80% and added padding */}
+        {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
             src="https://us-west-2.graphassets.com/cm6z9zgwf1j7l07mth85t98kt/cm71h3rgq68uj08mzyy5855uh"
@@ -41,6 +42,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <LanguageSwitcher />
         </nav>
 
         {/* Mobile Navigation */}
@@ -75,6 +77,9 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
+              <div className="px-4 py-2">
+                <LanguageSwitcher />
+              </div>
             </nav>
           </SheetContent>
         </Sheet>

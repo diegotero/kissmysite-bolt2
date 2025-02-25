@@ -52,13 +52,15 @@ export default async function CasesPage() {
               id={story.id}
               className="flex flex-col gap-12 scroll-mt-20"
             >
-              {/* Case Number */}
-              <div className="inline-flex items-center justify-center px-6 py-2 bg-[#955D95] text-white rounded-full text-sm font-bold w-fit">
-                Case {index + 1}
+              {/* Case Number - Aligned based on content orientation */}
+              <div className={`flex w-full ${index % 2 === 0 ? 'justify-start' : 'justify-end'} md:px-8`}>
+                <div className="inline-flex items-center justify-center px-6 py-2 bg-[#955D95] text-white rounded-full text-sm font-bold">
+                  Case {index + 1}
+                </div>
               </div>
 
-              <div className={`grid md:grid-cols-2 gap-12 md:gap-20 ${index % 2 === 0 ? '' : 'md:[&>div]:order-2'}`}>
-                <div className="space-y-8">
+              <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 md:gap-20 items-center`}>
+                <div className="w-full md:w-1/2 space-y-8">
                   {/* Title and Short Description */}
                   <div>
                     <h2 className="text-3xl md:text-4xl font-bold text-[#955D95] font-['Source_Code_Pro'] mb-4">
@@ -100,13 +102,13 @@ export default async function CasesPage() {
                   </div>
                 </div>
 
-                {/* Image */}
-                <div className="relative aspect-[4/3] md:aspect-square">
+                {/* Image with adjusted aspect ratio */}
+                <div className="w-full md:w-1/2 relative aspect-[16/10]">
                   <Image
                     src={story.image.url}
                     alt={story.title}
                     fill
-                    className="object-contain"
+                    className="object-contain rounded-lg"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority={index === 0}
                   />
