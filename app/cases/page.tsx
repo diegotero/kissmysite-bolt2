@@ -1,6 +1,7 @@
 import { getStories } from '@/lib/stories';
 import Image from 'next/image';
 import { CasesHero } from './cases-hero';
+import { useLanguageStore } from '@/lib/language';
 
 export const dynamic = 'force-static';
 
@@ -35,6 +36,7 @@ const CheckmarkIcon = () => (
 
 export default async function CasesPage() {
   const stories = await getStories();
+  const { language } = useLanguageStore();
 
   return (
     <div className="min-h-screen bg-white">
@@ -47,7 +49,7 @@ export default async function CasesPage() {
 
         <div className="flex flex-col gap-32">
           {stories.map((story, index) => (
-            <div 
+            <div
               key={story.id}
               id={story.id}
               className="flex flex-col gap-12 scroll-mt-20"
@@ -64,20 +66,20 @@ export default async function CasesPage() {
                   {/* Title and Short Description */}
                   <div>
                     <h2 className="text-3xl md:text-4xl font-bold text-[#955D95] font-['Source_Code_Pro'] mb-4">
-                      {story.title}
+                      {story[`title_${language}`]}
                     </h2>
                     <p className="text-lg text-gray-600 font-['Source_Code_Pro']">
-                      {story.shortDescription}
+                      {story[`shortDescription_${language}`]}
                     </p>
                   </div>
 
                   {/* Long Description */}
                   <div className="space-y-4">
                     <h3 className="text-2xl font-bold text-[#955D95] font-['Source_Code_Pro']">
-                      {story.longTitle}
+                      {story[`longTitle_${language}`]}
                     </h3>
                     <div className="space-y-4 text-gray-700 font-['Source_Code_Pro'] leading-relaxed">
-                      {formatLongDescription(story.longDescription).map((line, i) => (
+                      {formatLongDescription(story[`longDescription_${language}`]).map((line, i) => (
                         <p key={i} className="flex items-start gap-3">
                           <span className="text-[#D74B7C] text-2xl leading-none mt-1">•</span>
                           <span>{line}</span>
@@ -92,7 +94,7 @@ export default async function CasesPage() {
                       Resultado
                     </h4>
                     <div className="space-y-4 text-gray-700 font-['Source_Code_Pro']">
-                      {formatLongDescription(story.resultado).map((line, i) => (
+                      {formatLongDescription(story[`resultado_${language}`]).map((line, i) => (
                         <p key={i} className="flex items-start gap-3">
                           <CheckmarkIcon />
                           <span>{line}</span>
@@ -106,7 +108,7 @@ export default async function CasesPage() {
                 <div className="w-full md:w-1/2 relative aspect-[16/10]">
                   <Image
                     src={story.image.url}
-                    alt={story.title}
+                    alt={story[`title_${language}`]}
                     fill
                     className="object-contain rounded-lg"
                     sizes="(max-width: 768px) 100vw, 50vw"

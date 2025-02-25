@@ -6,13 +6,17 @@ const GET_SERVICES = gql`
   {
     services {
       id
-      title
-      description
-      longDescription
+      title_en: title
+      title_es: title @locale(language: es)
+      description_en: description
+      description_es: description @locale(language: es)
+      longDescription_en: longDescription
+      longDescription_es: longDescription @locale(language: es)
       image {
         url
       }
-      buttonText
+      buttonText_en: buttonText
+      buttonText_es: buttonText @locale(language: es)
       link
     }
   }

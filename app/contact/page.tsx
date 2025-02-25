@@ -1,6 +1,43 @@
+'use client';
+
 import { ContactForm } from './contact-form';
+import { useLanguageStore } from '@/lib/language';
+
+const translations = {
+  en: {
+    title: 'Write to us,\nwe can do great\nthings together',
+    address: {
+      title: 'Address',
+      content: 'Santos Dumont 2470, Palermo\nBuenos Aires, Argentina'
+    },
+    email: {
+      title: 'Email to us',
+      content: 'hola@kissmy.site'
+    },
+    phone: {
+      title: 'Phone call or Whatsapp',
+      content: '+54 9 3513166360'
+    }
+  },
+  es: {
+    title: 'Escríbenos,\npodemos hacer grandes\ncosas juntos',
+    address: {
+      title: 'Dirección',
+      content: 'Santos Dumont 2470, Palermo\nBuenos Aires, Argentina'
+    },
+    email: {
+      title: 'Envíanos un email',
+      content: 'hola@kissmy.site'
+    },
+    phone: {
+      title: 'Llamada o Whatsapp',
+      content: '+54 9 3513166360'
+    }
+  }
+};
 
 export default function ContactPage() {
+  const { language } = useLanguageStore();
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -17,18 +54,16 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 pt-20">
             {/* Left Column - Title and Contact Info */}
             <div className="space-y-custom">
-              <h1 className="text-[45px] leading-[57px] tracking-[0%] font-semibold font-['Source_Code_Pro'] text-white">
-                Write to us,<br />
-                we can do great<br />
-                things together
+              <h1 className="text-[45px] leading-[57px] tracking-[0%] font-semibold font-['Source_Code_Pro'] text-white whitespace-pre-line">
+                {translations[language].title}
               </h1>
 
               {/* Contact Info Cards */}
               <div className="space-y-4 bg-white/0 p-6 rounded-lg">
                 {/* Address */}
-                <a 
-                  href="https://maps.google.com/?q=Santos+Dumont+2470,+Palermo,+Buenos+Aires,+Argentina" 
-                  target="_blank" 
+                <a
+                  href="https://maps.google.com/?q=Santos+Dumont+2470,+Palermo,+Buenos+Aires,+Argentina"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex gap-4 group hover:bg-gray-50 p-4 rounded-lg transition-colors"
                 >
@@ -39,16 +74,17 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h2 className="text-xl font-semibold mb-2 font-['Source_Code_Pro'] text-[#1e1e1e] group-hover:text-[#955D95] transition-colors">Adress</h2>
-                    <p className="text-gray-600 font-['Source_Code_Pro']">
-                      Santos Dumont 2470, Palermo<br />
-                      Buenos Aires, Argentina
+                    <h2 className="text-xl font-semibold mb-2 font-['Source_Code_Pro'] text-[#1e1e1e] group-hover:text-[#955D95] transition-colors">
+                      {translations[language].address.title}
+                    </h2>
+                    <p className="text-gray-600 font-['Source_Code_Pro'] whitespace-pre-line">
+                      {translations[language].address.content}
                     </p>
                   </div>
                 </a>
 
                 {/* Email */}
-                <a 
+                <a
                   href="mailto:hola@kissmy.site"
                   className="flex gap-4 group hover:bg-gray-50 p-4 rounded-lg transition-colors"
                 >
@@ -59,13 +95,17 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h2 className="text-xl font-semibold mb-2 font-['Source_Code_Pro'] text-[#1e1e1e] group-hover:text-[#955D95] transition-colors">Email to us</h2>
-                    <p className="text-gray-600 font-['Source_Code_Pro']">hola@kissmy.site</p>
+                    <h2 className="text-xl font-semibold mb-2 font-['Source_Code_Pro'] text-[#1e1e1e] group-hover:text-[#955D95] transition-colors">
+                      {translations[language].email.title}
+                    </h2>
+                    <p className="text-gray-600 font-['Source_Code_Pro']">
+                      {translations[language].email.content}
+                    </p>
                   </div>
                 </a>
 
                 {/* Phone */}
-                <a 
+                <a
                   href="https://wa.me/5493513166360"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -77,8 +117,12 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h2 className="text-xl font-semibold mb-2 font-['Source_Code_Pro'] text-[#1e1e1e] group-hover:text-[#955D95] transition-colors">Phone call or Whatsapp</h2>
-                    <p className="text-gray-600 font-['Source_Code_Pro']">+54 9 3513166360</p>
+                    <h2 className="text-xl font-semibold mb-2 font-['Source_Code_Pro'] text-[#1e1e1e] group-hover:text-[#955D95] transition-colors">
+                      {translations[language].phone.title}
+                    </h2>
+                    <p className="text-gray-600 font-['Source_Code_Pro']">
+                      {translations[language].phone.content}
+                    </p>
                   </div>
                 </a>
               </div>

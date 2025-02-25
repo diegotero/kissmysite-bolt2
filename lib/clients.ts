@@ -6,7 +6,8 @@ const GET_CLIENTS = gql`
   {
     clients {
       id
-      name
+      name_en: name
+      name_es: name @locale(language: es)
       image {
         url
       }

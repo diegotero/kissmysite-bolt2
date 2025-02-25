@@ -3,13 +3,37 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Linkedin, Youtube } from 'lucide-react'
+import { useLanguageStore } from '@/lib/language'
+
+const translations = {
+  en: {
+    tagline: 'Good people are good business',
+    contactMe: 'contact me!',
+    home: 'Home',
+    services: 'Services',
+    cases: 'Cases',
+    contact: 'Contact',
+    location: 'Buenos Aires, Argentina'
+  },
+  es: {
+    tagline: 'La buena gente es un buen negocio',
+    contactMe: '¡contáctame!',
+    home: 'Inicio',
+    services: 'Servicios',
+    cases: 'Casos',
+    contact: 'Contacto',
+    location: 'Buenos Aires, Argentina'
+  }
+};
 
 export function Footer() {
+  const { language } = useLanguageStore();
+
   return (
     <footer className="relative overflow-hidden">
       {/* Gradient background */}
-      <div 
-        className="absolute inset-0" 
+      <div
+        className="absolute inset-0"
         style={{
           background: 'radial-gradient(circle at 30% 120%, #643042, #572d3b, #4a2a34, #3d272e, #312427, #242021, #1e1e1e, #1e1e1e, #1e1e1e, #1e1e1e, #1e1e1e, #1e1e1e)'
         }}
@@ -27,13 +51,13 @@ export function Footer() {
               className="mb-6"
             />
             <h2 className="text-3xl font-bold text-white mb-4">
-              Good people are good business
+              {translations[language].tagline}
             </h2>
             <Link
               href="/contact"
               className="inline-block bg-[#E91E63] hover:bg-[#D81B60] text-white px-8 py-3 rounded-full transition-colors"
             >
-              contact me!
+              {translations[language].contactMe}
             </Link>
           </div>
 
@@ -41,16 +65,16 @@ export function Footer() {
           <div>
             <nav className="flex flex-col space-y-4">
               <Link href="/" className="text-white hover:text-[#D3D3D3] transition-colors">
-                Home
+                {translations[language].home}
               </Link>
               <Link href="/services" className="text-white hover:text-[#D3D3D3] transition-colors">
-                Services
+                {translations[language].services}
               </Link>
               <Link href="/cases" className="text-white hover:text-[#D3D3D3] transition-colors">
-                Cases
+                {translations[language].cases}
               </Link>
               <Link href="/contact" className="text-white hover:text-[#D3D3D3] transition-colors">
-                Contact
+                {translations[language].contact}
               </Link>
             </nav>
           </div>
@@ -75,7 +99,7 @@ export function Footer() {
                 <Youtube className="h-6 w-6" />
               </a>
             </div>
-            <p className="text-white mt-4">Buenos Aires, Argentina</p>
+            <p className="text-white mt-4">{translations[language].location}</p>
           </div>
         </div>
       </div>

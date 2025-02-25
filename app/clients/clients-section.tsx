@@ -1,14 +1,25 @@
 import { getClients } from '@/lib/clients';
 import Image from 'next/image';
+import { useLanguageStore } from '@/lib/language';
+
+const translations = {
+  en: {
+    title: 'Clients who have already partnered with us'
+  },
+  es: {
+    title: 'Clientes que ya han colaborado con nosotros'
+  }
+};
 
 export async function ClientsSection() {
   const clients = await getClients();
+  const { language } = useLanguageStore();
 
   return (
     <section className="bg-white py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-[48px] font-bold text-[#1e1e1e] text-center mb-12 font-['Source_Code_Pro']">
-          Clients who have already partnered with us
+          {translations[language].title}
         </h2>
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
@@ -16,7 +27,7 @@ export async function ClientsSection() {
             <div key={client.id} className="w-full max-w-[240px] relative aspect-[2/1]">
               <Image
                 src={client.image.url}
-                alt={client.name}
+                alt={client[`name_${language}`]}
                 fill
                 sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
                 className="object-contain"

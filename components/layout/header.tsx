@@ -6,15 +6,32 @@ import Image from 'next/image'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
 import { LanguageSwitcher } from '@/components/language-switcher'
+import { useLanguageStore } from '@/lib/language'
+
+const translations = {
+  en: {
+    home: 'Home',
+    services: 'Services',
+    cases: 'Cases',
+    contact: 'Contact'
+  },
+  es: {
+    home: 'Inicio',
+    services: 'Servicios',
+    cases: 'Casos',
+    contact: 'Contacto'
+  }
+};
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { language } = useLanguageStore();
 
   const menuItems = [
-    { href: '/', label: 'Home' },
-    { href: '/services', label: 'Services' },
-    { href: '/cases', label: 'Cases' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/', label: translations[language].home },
+    { href: '/services', label: translations[language].services },
+    { href: '/cases', label: translations[language].cases },
+    { href: '/contact', label: translations[language].contact },
   ]
 
   return (
