@@ -1,3 +1,5 @@
+import path from 'path';
+
 /** @type {import('next').NextConfig} */
 
 // Configuración base de imágenes
@@ -24,7 +26,16 @@ const imageConfig = {
   contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
 };
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@/components': path.join(__dirname, 'components'),
+      '@/lib': path.join(__dirname, 'lib')
+    };
+    return config;
+  },
   // Configuración de imágenes
   images: {
     ...imageConfig,

@@ -24,6 +24,12 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "@/components/*": [
+        "./components/*"
+      ],
+      "@/lib/*": [
+        "./lib/*"
       ]
     },
     "target": "esnext"
