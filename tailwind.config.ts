@@ -50,12 +50,6 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        "source-code-pro": {
-          DEFAULT: "var(--font-source-code-pro)",
-        },
-        "open-sans": {
-          DEFAULT: "var(--font-open-sans)",
-        }
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -76,10 +70,6 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
-    },
-    fontFamily: {
-      'source-code-pro': ['Source Code Pro', 'monospace'],
-      'open-sans': ['Open Sans', 'sans-serif'],
     },
   },
   plugins: [require("tailwindcss-animate")],

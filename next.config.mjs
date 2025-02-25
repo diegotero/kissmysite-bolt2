@@ -1,83 +1,55 @@
-import path from 'path';
-
-/** @type {import('next').NextConfig} */
-
-// Configuración base de imágenes
-const imageConfig = {
-  remotePatterns: [
-    {
-      protocol: 'https',
-      hostname: 'us-west-2.graphassets.com',
-      port: '',
-      pathname: '/**',
-    },
-    {
-      protocol: 'https',
-      hostname: 'us-west-2.cdn.hygraph.com',
-      port: '',
-      pathname: '/**',
-    },
-  ],
-  minimumCacheTTL: 60,
-  deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-  imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-  formats: ['image/webp'],
-  dangerouslyAllowSVG: true,
-  contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
-};
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    esmExternals: true,
-    serverActions: true
-  },
-  transpilePackages: ['next', 'react', 'react-dom'],
-  modularizeImports: {
-    '@/components': {
-      transform: '@/components/{{member}}',
-    },
-    '@/lib': {
-      transform: '@/lib/{{member}}',
-    }
-  },
+  // Optimiza el manejo de fuentes
+  optimizeFonts: true,
+  
   // Configuración de imágenes
   images: {
-    ...imageConfig,
-    domains: ['us-west-2.graphassets.com', 'us-west-2.cdn.hygraph.com'],
-  },
-  // Configuración de API
-  async rewrites() {
-    return [
+    unoptimized: true,
+    domains: [
+      'us-west-2.graphassets.com',
+      'us-west-2.cdn.hygraph.com'
+    ],
+    remotePatterns: [
       {
-        source: '/api/hygraph/:path*',
-        destination: `${process.env.NEXT_PUBLIC_HYGRAPH_API_URL}/:path*`,
+        protocol: 'https',
+        hostname: 'us-west-2.graphassets.com',
+        port: '',
+        pathname: '/**',
       },
-    ];
+      {
+        protocol: 'https',
+        hostname: 'us-west-2.cdn.hygraph.com',
+        port: '',
+        pathname: '/**',
+      }
+    ]
   },
-
+  
   // Configuración de webpack para manejar archivos estáticos
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     config.module.rules.push({
-      test: /\.(woff|woff2|eot|ttf|otf)$/,
+      test: /\.(woff|woff2|eot|ttf|otf)$/i,
       type: 'asset/resource',
-      generator: {
-        filename: 'static/media/[path][name].[ext]',
-      },
     });
-
     return config;
   },
 
-  // Experimental features
+  // Static export configuration
+  output: 'export',
+  
+  // Disable server components for static export
   experimental: {
-    scrollRestoration: true
+    appDir: true
   },
 
-  // Configuración de caché y rendimiento
-  generateEtags: true,
-  compress: true,
-  poweredByHeader: false
+  // Trailing slash for better static hosting
+  trailingSlash: true,
+
+  // Disable image optimization warnings
+  images: {
+    unoptimized: true,
+  }
 };
 
 export default nextConfig;

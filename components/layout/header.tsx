@@ -18,15 +18,15 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#1F1F1F]">
-      <div className="container mx-auto flex h-[96px] items-center justify-between px-4">
-        {/* Logo - Reduced size to 80% and added padding */}
+      <div className="container mx-auto flex h-[96px] items-center justify-between px-4 py-4">
+        {/* Logo - Increased size by 50% */}
         <Link href="/" className="flex items-center">
           <Image
             src="https://us-west-2.graphassets.com/cm6z9zgwf1j7l07mth85t98kt/cm71h3rgq68uj08mzyy5855uh"
             alt="KISS_MY_SITE"
-            width={144} // Reduced from 180 to 144 (80%)
-            height={48} // Reduced from 60 to 48 (80%)
-            className="h-auto py-3" // Added padding-top and padding-bottom
+            width={180}
+            height={60}
+            className="h-auto"
           />
         </Link>
 

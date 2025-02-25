@@ -7,8 +7,8 @@ export async function ServicesSection() {
   return (
     <section className="bg-white text-black py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-[#1e1e1e] font-bold text-center mb-12 mx-auto max-w-3xl md:max-w-4xl" style={{ fontWeight: 700, fontSize: '48px', lineHeight: '48px', maxWidth: '70%' }}>Services</h2>
-        <p className="text-center mb-12 font-['Open_Sans'] mx-auto max-w-3xl md:max-w-4xl" style={{ fontFamily: 'Open Sans', fontWeight: 400, fontSize: '20px', maxWidth: '70%' }}>
+        <h2 className="text-3xl font-bold text-center mb-12">Services</h2>
+        <p className="text-center mb-12">
           We create connections that distill the complex and inspire action. Then, we build trust through
           our hard work across five areas of specialization
         </p>
