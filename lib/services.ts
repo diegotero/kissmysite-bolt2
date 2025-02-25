@@ -8,6 +8,11 @@ const GET_SERVICES = gql`
       id
       title
       description
+      longDescription
+      image {
+        url
+      }
+      buttonText
       link
     }
   }

@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { Linkedin, Youtube } from 'lucide-react'
@@ -6,7 +8,12 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden">
       {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1E1E1E] via-[#9C6B98] to-[#E8B4B4] opacity-90" />
+      <div 
+        className="absolute inset-0" 
+        style={{
+          background: 'radial-gradient(circle at 30% 120%, #643042, #572d3b, #4a2a34, #3d272e, #312427, #242021, #1e1e1e, #1e1e1e, #1e1e1e, #1e1e1e, #1e1e1e, #1e1e1e)'
+        }}
+      />
       
       <div className="container relative mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -24,7 +31,7 @@ export function Footer() {
             </h2>
             <Link
               href="/contact"
-              className="inline-block bg-pink-600 hover:bg-pink-700 text-white px-8 py-3 rounded-full transition-colors"
+              className="inline-block bg-[#E91E63] hover:bg-[#D81B60] text-white px-8 py-3 rounded-full transition-colors"
             >
               contact me!
             </Link>
@@ -33,16 +40,16 @@ export function Footer() {
           {/* Navigation */}
           <div>
             <nav className="flex flex-col space-y-4">
-              <Link href="/" className="text-white hover:text-gray-200 transition-colors">
+              <Link href="/" className="text-white hover:text-[#D3D3D3] transition-colors">
                 Home
               </Link>
-              <Link href="/services" className="text-white hover:text-gray-200 transition-colors">
+              <Link href="/services" className="text-white hover:text-[#D3D3D3] transition-colors">
                 Services
               </Link>
-              <Link href="/cases" className="text-white hover:text-gray-200 transition-colors">
+              <Link href="/cases" className="text-white hover:text-[#D3D3D3] transition-colors">
                 Cases
               </Link>
-              <Link href="/contact" className="text-white hover:text-gray-200 transition-colors">
+              <Link href="/contact" className="text-white hover:text-[#D3D3D3] transition-colors">
                 Contact
               </Link>
             </nav>
@@ -55,7 +62,7 @@ export function Footer() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-200 transition-colors"
+                className="text-white hover:text-[#D3D3D3] transition-colors"
               >
                 <Linkedin className="h-6 w-6" />
               </a>
@@ -63,7 +70,7 @@ export function Footer() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gray-200 transition-colors"
+                className="text-white hover:text-[#D3D3D3] transition-colors"
               >
                 <Youtube className="h-6 w-6" />
               </a>

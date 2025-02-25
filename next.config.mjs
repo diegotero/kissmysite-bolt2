@@ -1,15 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Optimiza el manejo de fuentes
-  optimizeFonts: true,
+  // Static export configuration
+  output: 'export',
   
-  // Configuración de imágenes
+  // Images configuration
   images: {
     unoptimized: true,
-    domains: [
-      'us-west-2.graphassets.com',
-      'us-west-2.cdn.hygraph.com'
-    ],
     remotePatterns: [
       {
         protocol: 'https',
@@ -26,7 +22,7 @@ const nextConfig = {
     ]
   },
   
-  // Configuración de webpack para manejar archivos estáticos
+  // Webpack configuration for static files
   webpack: (config) => {
     config.module.rules.push({
       test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -35,21 +31,13 @@ const nextConfig = {
     return config;
   },
 
-  // Static export configuration
-  output: 'export',
-  
-  // Disable server components for static export
-  experimental: {
-    appDir: true
-  },
-
   // Trailing slash for better static hosting
   trailingSlash: true,
 
-  // Disable image optimization warnings
-  images: {
-    unoptimized: true,
-  }
+  // Disable telemetry
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;

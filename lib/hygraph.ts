@@ -13,7 +13,7 @@ const hygraphClient = new GraphQLClient(
   {
     headers: {
       Authorization: `Bearer ${process.env.HYGRAPH_AUTH_TOKEN}`,
-    },
+    }
   }
 );
 

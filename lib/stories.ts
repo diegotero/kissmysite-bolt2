@@ -7,8 +7,12 @@ const GET_STORIES = gql`
     cases {
       id
       title
-      shortDescription
       category
+      shortDescription
+      longDescription
+      longTitle
+      resultado
+      textoBotonCaso
       image {
         url
       }
