@@ -28,13 +28,18 @@ const imageConfig = {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@/components': path.join(__dirname, 'components'),
-      '@/lib': path.join(__dirname, 'lib')
-    };
-    return config;
+  experimental: {
+    esmExternals: true,
+    serverActions: true
+  },
+  transpilePackages: ['next', 'react', 'react-dom'],
+  modularizeImports: {
+    '@/components': {
+      transform: '@/components/{{member}}',
+    },
+    '@/lib': {
+      transform: '@/lib/{{member}}',
+    }
   },
   // Configuración de imágenes
   images: {
