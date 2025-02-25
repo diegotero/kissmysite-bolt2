@@ -6,8 +6,12 @@ import { StoriesSection } from './stories/stories-section'
 import { DiscoverySection } from './discovery/discovery-section'
 import { getStories } from '@/lib/stories'
 
+export const revalidate = 0; // Deshabilitar caché para desarrollo
+
 export default async function Home() {
+  console.log('Fetching initial data...');
   const stories = await getStories();
+  console.log('Stories fetched:', stories);
 
   return (
     <div className="min-h-screen text-white">

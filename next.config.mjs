@@ -26,7 +26,19 @@ const imageConfig = {
 
 const nextConfig = {
   // Configuración de imágenes
-  images: imageConfig,
+  images: {
+    ...imageConfig,
+    domains: ['us-west-2.graphassets.com', 'us-west-2.cdn.hygraph.com'],
+  },
+  // Configuración de API
+  async rewrites() {
+    return [
+      {
+        source: '/api/hygraph/:path*',
+        destination: `${process.env.NEXT_PUBLIC_HYGRAPH_API_URL}/:path*`,
+      },
+    ];
+  },
 
   // Configuración de webpack para manejar archivos estáticos
   webpack: (config, { isServer }) => {

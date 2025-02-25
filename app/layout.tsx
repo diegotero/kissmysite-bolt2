@@ -25,11 +25,17 @@ export const metadata: Metadata = {
   description: 'Starter kit from codeguide.dev',
 }
 
+export const dynamic = 'force-dynamic'; // Deshabilitar caché para debugging
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  console.log('Environment variables loaded:', {
+    apiUrl: process.env.NEXT_PUBLIC_HYGRAPH_API_URL,
+    hasAuthToken: !!process.env.HYGRAPH_AUTH_TOKEN
+  });
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${sourceCodePro.variable} ${openSans.variable} antialiased`}>
