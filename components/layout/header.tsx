@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
 import { LanguageSwitcher } from '@/components/language-switcher'
+import { X } from 'lucide-react'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,16 +19,16 @@ export function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#1F1F1F]">
-      <div className="container mx-auto flex h-[72px] md:h-[96px] items-center justify-between px-4">
-        {/* Logo */}
+    <header className="sticky top-0 z-50 w-full bg-[#1F1F1F] shadow-sm">
+      <div className="container mx-auto flex h-[60px] md:h-[72px] items-center justify-between px-4">
+        {/* Logo - Reduced size for mobile */}
         <Link href="/" className="flex items-center">
           <Image
             src="https://us-west-2.graphassets.com/cm6z9zgwf1j7l07mth85t98kt/cm71h3rgq68uj08mzyy5855uh"
             alt="KISS_MY_SITE"
-            width={120}
-            height={40}
-            className="h-auto py-3"
+            width={100}
+            height={32}
+            className="h-auto py-2 w-auto max-w-[100px] md:max-w-[120px]"
           />
         </Link>
 
@@ -48,7 +49,10 @@ export function Header() {
         {/* Mobile Navigation */}
         <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
           <SheetTrigger asChild>
-            <button className="group md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors">
+            <button 
+              className="group md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors"
+              aria-label="Toggle menu"
+            >
               <div className="space-y-2">
                 <span className={cn(
                   "block h-0.5 w-6 bg-white transition-transform hamburger-line",
@@ -65,8 +69,19 @@ export function Header() {
               </div>
             </button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[280px] bg-[#1f1f1f]">
-            <nav className="flex flex-col space-y-4 mt-8">
+          <SheetContent 
+            side="right" 
+            className="w-[280px] bg-[#1f1f1f] border-l border-[#2a2a2a] p-6"
+            closeButton={false}
+          >
+            <button 
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute right-4 top-4 rounded-sm opacity-70 text-white hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-pink-400 p-1"
+              aria-label="Close menu"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <nav className="flex flex-col space-y-4 mt-12">
               {menuItems.map((item) => (
                 <Link
                   key={item.href}
@@ -77,7 +92,7 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <div className="px-4 py-2">
+              <div className="px-4 py-2 mt-4">
                 <LanguageSwitcher />
               </div>
             </nav>

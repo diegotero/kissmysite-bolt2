@@ -228,3 +228,23 @@ img.loaded {
     padding-right: 1rem;
   }
 }
+
+/* Header shadow for sticky positioning */
+header.sticky {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile menu sheet customizations */
+.mobile-menu-sheet {
+  background-color: #1f1f1f;
+  border-left-color: #2a2a2a;
+}
+
+.mobile-menu-sheet .close-button {
+  color: white;
+  opacity: 0.7;
+}
+
+.mobile-menu-sheet .close-button:hover {
+  opacity: 1;
+}
