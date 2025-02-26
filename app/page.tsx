@@ -24,13 +24,13 @@ export default async function Home() {
           }}
         />
         
-        <div className="container relative mx-auto px-4 py-20">
+        <div className="container relative mx-auto px-4 py-12 md:py-20">
           <div className="max-w-4xl">
-            <h1 className="text-[45px] leading-[57px] tracking-[0%] font-semibold mb-6 font-['Source_Code_Pro']">
+            <h1 className="text-[32px] md:text-[45px] leading-[1.2] md:leading-[57px] tracking-[0%] font-semibold mb-4 md:mb-6 font-['Source_Code_Pro']">
               We combine creativity, data, media and technology to revolutionize the way brands inspire the world.
             </h1>
-            <p className="text-[24px] leading-[30.17px] tracking-[0%] text-gray-400 mb-8 font-['Source_Code_Pro']">Good people are good business</p>
-            <Button className="hero-button bg-[#D74B7C] hover:bg-[#D74B7C]/90 text-white px-8 py-8 rounded-lg text-base font-bold font-['Open_Sans'] leading-[21.79px] tracking-[0%]">
+            <p className="text-[18px] md:text-[24px] leading-[1.3] md:leading-[30.17px] tracking-[0%] text-gray-400 mb-6 md:mb-8 font-['Source_Code_Pro']">Good people are good business</p>
+            <Button className="hero-button bg-[#D74B7C] hover:bg-[#D74B7C]/90 text-white px-6 md:px-8 py-6 md:py-8 rounded-lg text-base font-bold font-['Open_Sans'] leading-[21.79px] tracking-[0%]">
               Let&apos;s meet each other!
             </Button>
           </div>

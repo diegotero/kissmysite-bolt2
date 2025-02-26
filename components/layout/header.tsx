@@ -19,14 +19,14 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#1F1F1F]">
-      <div className="container mx-auto flex h-[96px] items-center justify-between px-4">
+      <div className="container mx-auto flex h-[72px] md:h-[96px] items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
             src="https://us-west-2.graphassets.com/cm6z9zgwf1j7l07mth85t98kt/cm71h3rgq68uj08mzyy5855uh"
             alt="KISS_MY_SITE"
-            width={144}
-            height={48}
+            width={120}
+            height={40}
             className="h-auto py-3"
           />
         </Link>
@@ -51,21 +51,21 @@ export function Header() {
             <button className="group md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors">
               <div className="space-y-2">
                 <span className={cn(
-                  "block h-0.5 w-8 bg-white transition-transform hamburger-line",
+                  "block h-0.5 w-6 bg-white transition-transform hamburger-line",
                   isMenuOpen && "translate-y-2.5 rotate-45"
                 )} />
                 <span className={cn(
-                  "block h-0.5 w-8 bg-white transition-opacity hamburger-line",
+                  "block h-0.5 w-6 bg-white transition-opacity hamburger-line",
                   isMenuOpen && "opacity-0"
                 )} />
                 <span className={cn(
-                  "block h-0.5 w-8 bg-white transition-transform hamburger-line",
+                  "block h-0.5 w-6 bg-white transition-transform hamburger-line",
                   isMenuOpen && "-translate-y-2.5 -rotate-45"
                 )} />
               </div>
             </button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] bg-[#1f1f1f]">
+          <SheetContent side="right" className="w-[280px] bg-[#1f1f1f]">
             <nav className="flex flex-col space-y-4 mt-8">
               {menuItems.map((item) => (
                 <Link

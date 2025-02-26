@@ -14,10 +14,10 @@ export default function ContactPage() {
         />
         
         <div className="container relative mx-auto px-[3.25rem]">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 pt-20">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 pt-12 md:pt-20">
             {/* Left Column - Title and Contact Info */}
             <div className="space-y-custom">
-              <h1 className="text-[45px] leading-[57px] tracking-[0%] font-semibold font-['Source_Code_Pro'] text-white">
+              <h1 className="text-[32px] md:text-[45px] leading-[1.2] md:leading-[57px] tracking-[0%] font-semibold font-['Source_Code_Pro'] text-white">
                 Write to us,<br />
                 we can do great<br />
                 things together
