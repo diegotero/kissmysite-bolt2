@@ -5,7 +5,7 @@ const nextConfig = {
   
   // Images configuration
   images: {
-    unoptimized: true,
+    unoptimized: false,
     remotePatterns: [
       {
         protocol: 'https',
@@ -34,9 +34,9 @@ const nextConfig = {
   // Trailing slash for better static hosting
   trailingSlash: true,
 
-  // Disable telemetry
+  // TypeScript configuration
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
 };
 
