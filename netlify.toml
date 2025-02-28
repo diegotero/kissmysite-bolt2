@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "out"
+  publish = ".next"
 
 # Environment variables
 [build.environment]
@@ -10,10 +10,6 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-  [plugins.inputs]
-  buildDir = "out"
-  experimentalEnable = true
-  nextConfigDir = "."
 
 # Handle Next.js routing
 [[redirects]]
