@@ -9,12 +9,11 @@
   NEXT_PUBLIC_SITE_URL = "https://kissmysite-bolt2.netlify.app"
 
 [[plugins]]
-  [plugins.inputs]
-    # If you have a custom build directory
-    buildDir = "out"
-    # If true, the plugin will create a .next directory
-    experimentalEnable = true
   package = "@netlify/plugin-nextjs"
+  [plugins.inputs]
+  buildDir = "out"
+  experimentalEnable = true
+  nextConfigDir = "."
 
 # Handle Next.js routing
 [[redirects]]
