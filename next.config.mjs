@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Output configuration
+  distDir: 'out',
+  experimental: { appDir: true },
   
   // Images configuration
   images: {

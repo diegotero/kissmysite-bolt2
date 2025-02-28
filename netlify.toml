@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
 
 # Environment variables
 [build.environment]
@@ -9,6 +9,11 @@
   NEXT_PUBLIC_SITE_URL = "https://kissmysite-bolt2.netlify.app"
 
 [[plugins]]
+  [plugins.inputs]
+    # If you have a custom build directory
+    buildDir = "out"
+    # If true, the plugin will create a .next directory
+    experimentalEnable = true
   package = "@netlify/plugin-nextjs"
 
 # Handle Next.js routing
