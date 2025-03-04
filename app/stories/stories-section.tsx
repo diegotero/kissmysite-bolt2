@@ -8,15 +8,51 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 interface StoriesSectionProps {
   stories: Story[];
 }
 
 export function StoriesSection({ stories }: StoriesSectionProps) {
+  const [api, setApi] = useState<CarouselApi>();
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  // Determinar si hay suficientes elementos para mostrar flechas
+  const hasMultipleSlides = stories.length > 3; // Asumiendo 3 elementos por vista en desktop
+
+  useEffect(() => {
+    if (!api) return;
+
+    const onSelect = () => {
+      setCanScrollPrev(api.canScrollPrev());
+      setCanScrollNext(api.canScrollNext());
+      
+      // Log para depuración
+      console.log('Can scroll prev:', api.canScrollPrev());
+      console.log('Can scroll next:', api.canScrollNext());
+      console.log('Current slide:', api.selectedScrollSnap());
+      console.log('Total slides:', api.scrollSnapList().length);
+    };
+
+    api.on("select", onSelect);
+    api.on("reInit", onSelect);
+    
+    // Forzar una actualización inicial
+    setTimeout(() => {
+      onSelect();
+    }, 100);
+
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
   return (
     <section className="bg-white py-20">
       <div className="container mx-auto px-4">
@@ -30,16 +66,18 @@ export function StoriesSection({ stories }: StoriesSectionProps) {
         <Carousel
           opts={{
             align: "start",
-            loop: true,
+            loop: false,
+            dragFree: false,
           }}
-          className="w-full"
+          setApi={setApi}
+          className="w-full relative"
         >
           <CarouselContent className="-ml-4">
             {stories.map((story, index) => (
               <CarouselItem key={story.id} className="pl-4 md:basis-1/3">
-                <div className="flex flex-col h-full">
+                <div className="flex flex-col h-full border border-[#e5e7eb] rounded-lg overflow-hidden">
                   {/* Image Container with fixed aspect ratio */}
-                  <div className="relative w-full aspect-[16/10] bg-[#F8F0F7] rounded-t-lg">
+                  <div className="relative w-full aspect-[16/10] bg-[#FFF]">
                     <Image
                       src={story.image.url}
                       alt={story.title}
@@ -49,7 +87,7 @@ export function StoriesSection({ stories }: StoriesSectionProps) {
                       priority={index === 0}
                     />
                   </div>
-                  <div className="bg-[#F8F0F7] p-6 rounded-b-lg flex-grow">
+                  <div className="bg-[#F8F0F7] p-6 flex-grow">
                     <span className="inline-block px-4 py-1 bg-[#9C6B98] text-white rounded-full mb-4 text-sm font-['Source_Code_Pro']">
                       {story.category}
                     </span>
@@ -68,8 +106,18 @@ export function StoriesSection({ stories }: StoriesSectionProps) {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex bg-white border-[#D74B7C] text-[#D74B7C] hover:bg-[#D74B7C] hover:text-white" />
-          <CarouselNext className="hidden md:flex bg-white border-[#D74B7C] text-[#D74B7C] hover:bg-[#D74B7C] hover:text-white" />
+          
+          {/* Mostrar flechas solo si hay suficientes elementos */}
+          {hasMultipleSlides && (
+            <>
+              <CarouselPrevious 
+                className={`hidden md:flex bg-white border-[#D74B7C] text-[#D74B7C] hover:bg-[#D74B7C] hover:text-white ${!canScrollPrev ? 'opacity-50 cursor-not-allowed' : ''}`} 
+              />
+              <CarouselNext 
+                className={`hidden md:flex bg-white border-[#D74B7C] text-[#D74B7C] hover:bg-[#D74B7C] hover:text-white ${!canScrollNext ? 'opacity-50 cursor-not-allowed' : ''}`} 
+              />
+            </>
+          )}
         </Carousel>
       </div>
     </section>

@@ -1,14 +1,19 @@
-// Middleware file for Nextj.s
 import { NextRequest, NextResponse } from "next/server"
 
-// Default Next.js middleware to allow all requests
 export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl
+  
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    /\.(jpg|jpeg|png|gif|svg|css|js|ico|ttf|woff|woff2|csv|docx|xlsx|zip|webmanifest)$/.test(pathname)
+  ) {
+    return NextResponse.next()
+  }
+  
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: [
-    // Skip Next.js internals and all static files, unless found in search params
-    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)|api/webhooks).*)",
-  ],
+  matcher: ['/:path*'],
 }

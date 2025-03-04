@@ -3,7 +3,7 @@ import { hygraphClient } from './hygraph';
 import { Client } from '@/types/client';
 
 const GET_CLIENTS = gql`
-  {
+  query GetClients {
     clients {
       id
       name

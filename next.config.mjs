@@ -1,25 +1,26 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  
-  // Images configuration
+  reactStrictMode: true,
   images: {
-    unoptimized: false,
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'us-west-2.graphassets.com',
-        port: '',
-        pathname: '/**',
+        pathname: '**',
       },
       {
         protocol: 'https',
-        hostname: 'us-west-2.cdn.hygraph.com',
-        port: '',
-        pathname: '/**',
-      }
-    ]
+        hostname: 'media.graphassets.com',
+        pathname: '**',
+      },
+    ],
   },
-  
+  // Optimizaciones de compilación
+  swcMinify: true,
+  // Optimizaciones de producción
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   // Webpack configuration for static files
   webpack: (config) => {
     config.module.rules.push({
