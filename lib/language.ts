@@ -19,6 +19,3 @@ export const useLanguageStore = create<LanguageState>()(
     }
   )
 );
-
-// Si language no se usa, renombrarlo o eliminarlo según corresponda
-const _language = /* ... */;
