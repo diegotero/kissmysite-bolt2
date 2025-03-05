@@ -12,7 +12,7 @@ export const useLanguageStore = create<LanguageState>()(
   persist(
     (set) => ({
       language: 'en',
-      setLanguage: (language) => set({ language }),
+      setLanguage: (newLanguage) => set({ language: newLanguage }),
     }),
     {
       name: 'language-storage',

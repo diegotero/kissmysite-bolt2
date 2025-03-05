@@ -53,6 +53,23 @@ export function StoriesSection({ stories }: StoriesSectionProps) {
     };
   }, [api]);
 
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+  }, []);
+
   return (
     <section className="bg-white py-20">
       <div className="container mx-auto px-4">
