@@ -1,52 +1,15 @@
 'use client';
 
 import { Story } from '@/types/story';
-import { Button } from '@/components/ui/button';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel";
-import Image from 'next/image';
+import { useEffect } from 'react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 interface StoriesSectionProps {
   stories: Story[];
 }
 
 export function StoriesSection({ stories }: StoriesSectionProps) {
-  const [api, setApi] = useState<CarouselApi>();
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
-
-  // Determinar si hay suficientes elementos para mostrar flechas
-  const hasMultipleSlides = stories.length > 3; // Asumiendo 3 elementos por vista en desktop
-
-  useEffect(() => {
-    if (!api) return;
-
-    const onSelect = () => {
-      setCanScrollPrev(api.canScrollPrev());
-      setCanScrollNext(api.canScrollNext());
-    };
-
-    api.on("select", onSelect);
-    api.on("reInit", onSelect);
-    
-    // Forzar una actualización inicial
-    setTimeout(() => {
-      onSelect();
-    }, 100);
-
-    return () => {
-      api.off("select", onSelect);
-    };
-  }, [api]);
-
   useEffect(() => {
     const options = {
       root: null,

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useLanguageStore, type Language } from '@/lib/language';
+import { useLanguageStore } from '@/lib/language';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
