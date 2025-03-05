@@ -299,3 +299,36 @@ header.sticky {
 .mobile-menu-sheet .close-button:hover {
   opacity: 1;
 }
+
+/* Embla Carousel Styles */
+.embla {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.embla__container {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.embla__slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+/* Desktop slides */
+@media (min-width: 768px) {
+  .embla__slide {
+    flex: 0 0 calc(33.333% - 1.333rem);
+  }
+}
+
+/* Tablet slides */
+@media (min-width: 640px) and (max-width: 767px) {
+  .embla__slide {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
