@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
-import { LanguageSwitcher } from '@/components/language-switcher'
 import { X } from 'lucide-react'
 
 export function Header() {
@@ -19,7 +18,7 @@ export function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#1F1F1F] shadow-sm">
+    <header className="md:relative sticky top-0 z-50 w-full bg-[#1F1F1F] shadow-sm">
       <div className="container mx-auto flex h-[60px] md:h-[72px] items-center justify-between px-4">
         {/* Logo - Reduced size for mobile */}
         <Link href="/" className="flex items-center">
@@ -43,7 +42,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <LanguageSwitcher />
         </nav>
 
         {/* Mobile Navigation */}
@@ -92,9 +90,6 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <div className="px-4 py-2 mt-4">
-                <LanguageSwitcher />
-              </div>
             </nav>
           </SheetContent>
         </Sheet>

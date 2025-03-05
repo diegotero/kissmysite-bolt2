@@ -59,7 +59,7 @@ export function Footer() {
           <div className="flex flex-col justify-between">
             <div className="flex space-x-4">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/kissmy-site/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-[#D3D3D3] transition-colors"

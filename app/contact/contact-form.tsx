@@ -158,7 +158,7 @@ export function ContactForm() {
         className="w-full bg-[#D74B7C] hover:bg-[#D74B7C]/90 text-white py-6 rounded-lg text-base font-bold font-['Open_Sans']"
         disabled={isSubmitting}
       >
-        {isSubmitting ? 'Sending...' : 'Enviar'}
+        {isSubmitting ? 'Sending...' : 'Send'}
       </Button>
     </form>
   );

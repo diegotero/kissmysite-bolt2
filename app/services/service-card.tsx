@@ -7,14 +7,14 @@ interface ServiceCardProps {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   return (
-    <div className="border p-6 rounded-lg">
+    <div className="border p-6 rounded-lg hover:shadow-lg transition-all duration-300">
       <h3 className="text-pink-600 text-xl font-bold mb-4 font-['Source_Code_Pro']">{service.title}</h3>
       <p className="text-gray-600 mb-4 font-['Source_Code_Pro']">{service.description}</p>
       <Link 
-        href={service.link} 
-        className="text-[#2DB5AC] flex items-center font-['Source_Code_Pro'] hover:text-[#2DB5AC]"
+        href={`/services#${service.id}`}
+        className="text-[#2DB5AC] flex items-center font-['Source_Code_Pro'] hover:text-[#2DB5AC] group"
       >
-        how we do it <span className="ml-2">→</span>
+        how we do it <span className="ml-2 transition-transform group-hover:translate-x-2">→</span>
       </Link>
     </div>
   );
