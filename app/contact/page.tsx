@@ -31,7 +31,7 @@ export default function ContactPage() {
               </h1>
 
               {/* Contact Info Cards */}
-              <div className="space-y-4 bg-white/0 p-6 rounded-lg mt-8 md:mt-0">
+              <div className="space-y-4 bg-white/0 p-6 rounded-lg mt-8 md:mt-0 md:pt-20">
                 {/* Address */}
                 <a 
                   href="https://maps.google.com/?q=Santos+Dumont+2470,+Palermo,+Buenos+Aires,+Argentina" 
