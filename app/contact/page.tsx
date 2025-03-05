@@ -14,9 +14,9 @@ export default function ContactPage() {
         />
         
         <div className="container relative mx-auto px-[3.25rem]">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 pt-12 md:pt-20">
+          <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-8 md:gap-12 pt-12 md:pt-20">
             {/* Left Column - Title and Contact Info */}
-            <div className="space-y-custom">
+            <div className="space-y-custom mt-12 md:mt-0">
               <h1 className="text-[32px] md:text-[45px] leading-[1.2] md:leading-[57px] tracking-[0%] font-semibold font-['Source_Code_Pro'] text-white">
                 Write to us,<br />
                 we can do great<br />
@@ -85,7 +85,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right Column - Contact Form */}
-            <div className="bg-white shadow-lg rounded-lg p-8 -mt-4">
+            <div className="bg-white shadow-lg rounded-lg p-8 -mt-4 md:-mt-4">
               <ContactForm />
             </div>
           </div>

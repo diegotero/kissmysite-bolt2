@@ -41,12 +41,41 @@ export function StoriesSection({ stories }: StoriesSectionProps) {
   return (
     <section className="bg-white py-20">
       <div className="container mx-auto px-4">
-        <h2 className="text-[48px] font-bold text-center mb-4 text-[#1e1e1e] font-['Source_Code_Pro']">
-          Stories that make us proud
-        </h2>
-        <p className="text-center mb-12 text-lg text-gray-600 max-w-3xl mx-auto font-['Open_Sans']">
-          By creating a collaborative culture, our teams challenge objectives, finding ways to make things better, always.
-        </p>
+        <div className="flex flex-col md:block">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-[48px] font-bold text-center mb-4 text-[#1e1e1e] font-['Source_Code_Pro']">
+              Stories that make us proud
+            </h2>
+            {/* Mobile Navigation - Moved to top */}
+            <div className="flex md:hidden gap-2">
+              <button
+                className={`p-2 rounded-full border-2 ${
+                  !prevBtnEnabled 
+                    ? 'border-gray-200 text-gray-300 cursor-not-allowed' 
+                    : 'border-[#D74B7C] text-[#D74B7C] hover:bg-[#D74B7C] hover:text-white'
+                }`}
+                onClick={scrollPrev}
+                disabled={!prevBtnEnabled}
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                className={`p-2 rounded-full border-2 ${
+                  !nextBtnEnabled 
+                    ? 'border-gray-200 text-gray-300 cursor-not-allowed' 
+                    : 'border-[#D74B7C] text-[#D74B7C] hover:bg-[#D74B7C] hover:text-white'
+                }`}
+                onClick={scrollNext}
+                disabled={!nextBtnEnabled}
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+          <p className="text-center mb-12 text-lg text-gray-600 max-w-3xl mx-auto font-['Open_Sans']">
+            By creating a collaborative culture, our teams challenge objectives, finding ways to make things better, always.
+          </p>
+        </div>
         
         {/* Mobile Carousel */}
         <div className="md:hidden relative">
@@ -58,28 +87,6 @@ export function StoriesSection({ stories }: StoriesSectionProps) {
                 </div>
               ))}
             </div>
-          </div>
-          
-          {/* Mobile Navigation */}
-          <div className="flex justify-end gap-2 mt-4">
-            <button
-              className={`p-2 rounded-full border border-[#955D95] ${
-                !prevBtnEnabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#955D95] hover:text-white'
-              }`}
-              onClick={scrollPrev}
-              disabled={!prevBtnEnabled}
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              className={`p-2 rounded-full border border-[#955D95] ${
-                !nextBtnEnabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#955D95] hover:text-white'
-              }`}
-              onClick={scrollNext}
-              disabled={!nextBtnEnabled}
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
           </div>
         </div>
 
@@ -98,8 +105,10 @@ export function StoriesSection({ stories }: StoriesSectionProps) {
               </div>
               <div className="flex justify-end gap-2 mt-4">
                 <button
-                  className={`p-2 rounded-full border border-[#955D95] ${
-                    !prevBtnEnabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#955D95] hover:text-white'
+                  className={`p-2 rounded-full border-2 ${
+                    !prevBtnEnabled 
+                      ? 'border-gray-200 text-gray-300 cursor-not-allowed' 
+                      : 'border-[#D74B7C] text-[#D74B7C] hover:bg-[#D74B7C] hover:text-white'
                   }`}
                   onClick={scrollPrev}
                   disabled={!prevBtnEnabled}
@@ -107,8 +116,10 @@ export function StoriesSection({ stories }: StoriesSectionProps) {
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
-                  className={`p-2 rounded-full border border-[#955D95] ${
-                    !nextBtnEnabled ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#955D95] hover:text-white'
+                  className={`p-2 rounded-full border-2 ${
+                    !nextBtnEnabled 
+                      ? 'border-gray-200 text-gray-300 cursor-not-allowed' 
+                      : 'border-[#D74B7C] text-[#D74B7C] hover:bg-[#D74B7C] hover:text-white'
                   }`}
                   onClick={scrollNext}
                   disabled={!nextBtnEnabled}

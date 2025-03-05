@@ -25,11 +25,11 @@ export default async function ServicesPage() {
               id={service.id}
               className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 md:gap-20 items-center scroll-mt-20`}
             >
-              <div className="w-full md:w-1/2 space-y-8">
+              <div className="w-full md:w-1/2 space-y-6 md:space-y-8">
                 <h2 className="text-3xl md:text-4xl font-bold text-[#955D95] font-['Source_Code_Pro']">
                   {service.title}
                 </h2>
-                <p className="text-lg md:text-xl text-gray-600 font-['Source_Code_Pro']">
+                <p className="text-lg md:text-xl text-gray-600 font-['Source_Code_Pro'] leading-relaxed">
                   {service.description}
                 </p>
                 <ul className="space-y-4 text-gray-700 font-['Source_Code_Pro'] leading-relaxed list-none">
@@ -42,13 +42,14 @@ export default async function ServicesPage() {
                 </ul>
                 <Link href={service.link}>
                   <Button 
-                    className="bg-[#D74B7C] hover:bg-[#D74B7C]/90 text-white px-8 py-6 rounded-lg text-base font-bold font-['Open_Sans'] mt-4"
+                    className="bg-[#D74B7C] hover:bg-[#D74B7C]/90 text-white px-8 py-6 rounded-lg text-base font-bold font-['Open_Sans'] mt-8"
                   >
                     {service.buttonText}
                   </Button>
                 </Link>
               </div>
-              <div className="w-full md:w-1/2 relative aspect-[4/3]">
+              
+              <div className="w-full md:w-1/2 relative aspect-[4/3] md:aspect-square">
                 <Image
                   src={service.image.url}
                   alt={service.title}
