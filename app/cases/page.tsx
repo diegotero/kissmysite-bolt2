@@ -1,6 +1,7 @@
 import { getStories } from '@/lib/stories';
 import Image from 'next/image';
 import { CasesHero } from './cases-hero';
+import Link from 'next/link';
 
 export const dynamic = 'force-static';
 
@@ -126,6 +127,27 @@ export default async function CasesPage() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Final CTA Section - Mobile & Desktop */}
+        <div className="flex flex-col items-center text-center mt-32 pt-8 md:pt-16 border-t border-gray-100">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#955D95] font-['Source_Code_Pro'] mb-8">
+            Want to be our next success story?
+          </h2>
+          <Link 
+            href="/contact"
+            className="inline-flex items-center px-8 py-3 border-2 border-[#D74B7C] text-[#D74B7C] rounded-full font-['Source_Code_Pro'] hover:bg-[#D74B7C] hover:text-white transition-colors cursor-pointer"
+          >
+            Contact us
+            <svg 
+              className="w-5 h-5 ml-2" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
       </div>
     </div>

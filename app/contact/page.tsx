@@ -14,7 +14,7 @@ export default function ContactPage() {
         />
         
         <div className="container relative mx-auto px-[3.25rem]">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 pt-12 md:pt-20">
+          <div className="flex flex-col md:grid md:grid-cols-[1fr,1fr] gap-8 md:gap-12 pt-12 md:pt-20">
             {/* Title - Always at top in mobile */}
             <h1 className="text-[32px] md:hidden leading-[1.2] tracking-[0%] font-semibold font-['Source_Code_Pro'] text-white mb-8">
               Write to us,<br />
@@ -22,13 +22,8 @@ export default function ContactPage() {
               things together
             </h1>
 
-            {/* Right Column - Contact Form */}
-            <div className="bg-white shadow-lg rounded-lg p-8 -mt-4 md:-mt-4">
-              <ContactForm />
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-4 md:space-y-custom">
+            {/* Contact Info - First column in desktop */}
+            <div className="order-2 md:order-1 space-y-4 md:space-y-custom">
               <h1 className="hidden md:block text-[45px] leading-[57px] tracking-[0%] font-semibold font-['Source_Code_Pro'] text-white">
                 Write to us,<br />
                 we can do great<br />
@@ -94,6 +89,11 @@ export default function ContactPage() {
                   </div>
                 </a>
               </div>
+            </div>
+
+            {/* Right Column - Contact Form */}
+            <div className="order-1 md:order-2 bg-white shadow-lg rounded-lg p-8 -mt-4 md:-mt-4">
+              <ContactForm />
             </div>
           </div>
         </div>

@@ -173,7 +173,7 @@ function StoryCard({ story }: { story: Story }) {
         <p className="text-[#1e1e1e] font-['Source_Code_Pro'] mb-8 text-base leading-relaxed">
           {story.shortDescription}
         </p>
-        <div className="flex items-center px-6 py-2.5 border-2 border-[#D74B7C] text-[#D74B7C] rounded-full font-['Source_Code_Pro'] hover:bg-[#D74B7C] hover:text-white transition-colors cursor-pointer w-fit">
+        <div className="flex items-center px-6 py-2.5 border-2 bg-[#ffffff] border-[#D74B7C] text-[#D74B7C] rounded-full font-['Source_Code_Pro'] hover:bg-[#D74B7C] hover:text-white transition-colors cursor-pointer w-fit">
           See full case
           <svg 
             className="w-5 h-5 ml-2" 
@@ -210,7 +210,7 @@ function StoryCard({ story }: { story: Story }) {
         <p className="text-[#1e1e1e] font-['Source_Code_Pro'] mb-8 text-base leading-relaxed">
           {story.shortDescription}
         </p>
-        <div className="flex items-center px-6 py-2.5 border-2 border-[#D74B7C] text-[#D74B7C] rounded-full font-['Source_Code_Pro'] hover:bg-[#D74B7C] hover:text-white transition-colors cursor-pointer w-fit">
+        <div className="flex items-center px-6 py-2.5 border-2 bg-[#ffffff] border-[#D74B7C] text-[#D74B7C] rounded-full font-['Source_Code_Pro'] hover:bg-[#D74B7C] hover:text-white transition-colors cursor-pointer w-fit">
           See full case
           <svg 
             className="w-5 h-5 ml-2" 

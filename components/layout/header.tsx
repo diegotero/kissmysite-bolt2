@@ -3,12 +3,14 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
 import { X } from 'lucide-react'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const menuItems = [
     { href: '/', label: 'Home' },
@@ -16,6 +18,13 @@ export function Header() {
     { href: '/cases', label: 'Cases' },
     { href: '/contact', label: 'Contact' },
   ]
+
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return pathname === path
+    }
+    return pathname.startsWith(path)
+  }
 
   return (
     <header className="md:relative sticky top-0 z-50 w-full bg-[#1F1F1F] shadow-sm">
@@ -37,7 +46,12 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-white hover:text-pink-400 transition-colors"
+              className={cn(
+                "text-white transition-colors relative py-2",
+                isActive(item.href) 
+                  ? "text-[#D74B7C] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#D74B7C]" 
+                  : "hover:text-pink-400"
+              )}
             >
               {item.label}
             </Link>
@@ -84,7 +98,12 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-white hover:text-pink-400 transition-colors px-4 py-2 rounded-lg hover:bg-white/10"
+                  className={cn(
+                    "text-white transition-colors px-4 py-2 rounded-lg",
+                    isActive(item.href)
+                      ? "text-[#D74B7C] bg-white/5 border-l-2 border-[#D74B7C]"
+                      : "hover:text-pink-400 hover:bg-white/10"
+                  )}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
