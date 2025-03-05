@@ -33,7 +33,7 @@ export function Footer() {
               href="/contact"
               className="inline-block bg-[#E91E63] hover:bg-[#D81B60] text-white px-8 py-3 rounded-full transition-colors"
             >
-              contact me!
+              Contact me!
             </Link>
           </div>
 

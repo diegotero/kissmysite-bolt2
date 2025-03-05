@@ -14,17 +14,29 @@ export default function ContactPage() {
         />
         
         <div className="container relative mx-auto px-[3.25rem]">
-          <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-8 md:gap-12 pt-12 md:pt-20">
-            {/* Left Column - Title and Contact Info */}
-            <div className="space-y-custom mt-12 md:mt-0">
-              <h1 className="text-[32px] md:text-[45px] leading-[1.2] md:leading-[57px] tracking-[0%] font-semibold font-['Source_Code_Pro'] text-white">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-12 pt-12 md:pt-20">
+            {/* Title - Always at top in mobile */}
+            <h1 className="text-[32px] md:hidden leading-[1.2] tracking-[0%] font-semibold font-['Source_Code_Pro'] text-white mb-8">
+              Write to us,<br />
+              we can do great<br />
+              things together
+            </h1>
+
+            {/* Right Column - Contact Form */}
+            <div className="bg-white shadow-lg rounded-lg p-8 -mt-4 md:-mt-4">
+              <ContactForm />
+            </div>
+
+            {/* Contact Info */}
+            <div className="space-y-4 md:space-y-custom">
+              <h1 className="hidden md:block text-[45px] leading-[57px] tracking-[0%] font-semibold font-['Source_Code_Pro'] text-white">
                 Write to us,<br />
                 we can do great<br />
                 things together
               </h1>
 
               {/* Contact Info Cards */}
-              <div className="space-y-4 bg-white/0 p-6 rounded-lg">
+              <div className="space-y-4 bg-white/0 p-6 rounded-lg mt-8 md:mt-0">
                 {/* Address */}
                 <a 
                   href="https://maps.google.com/?q=Santos+Dumont+2470,+Palermo,+Buenos+Aires,+Argentina" 
@@ -82,11 +94,6 @@ export default function ContactPage() {
                   </div>
                 </a>
               </div>
-            </div>
-
-            {/* Right Column - Contact Form */}
-            <div className="bg-white shadow-lg rounded-lg p-8 -mt-4 md:-mt-4">
-              <ContactForm />
             </div>
           </div>
         </div>

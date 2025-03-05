@@ -52,10 +52,20 @@ export default async function CasesPage() {
               id={story.id}
               className="flex flex-col gap-12 scroll-mt-20"
             >
-              {/* Case Number - Aligned based on content orientation */}
-              <div className={`flex w-full ${index % 2 === 0 ? 'justify-start' : 'justify-end'} md:px-8`}>
-                <div className="inline-flex items-center justify-center px-6 py-2 bg-[#955D95] text-white rounded-full text-sm font-bold">
+              {/* Case Number and Logo container for mobile */}
+              <div className="flex w-full items-center justify-between md:block">
+                <div className="inline-flex items-center px-4 py-1.5 bg-[#955D95] text-white rounded-lg text-base font-['Source_Code_Pro']">
                   Case {index + 1}
+                </div>
+                {/* Logo for mobile */}
+                <div className="md:hidden w-32 relative aspect-[3/1]">
+                  <Image
+                    src={story.image.url}
+                    alt={story.title}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 128px"
+                  />
                 </div>
               </div>
 
@@ -102,8 +112,8 @@ export default async function CasesPage() {
                   </div>
                 </div>
 
-                {/* Image with adjusted aspect ratio */}
-                <div className="w-full md:w-1/2 relative aspect-[16/10]">
+                {/* Image - hidden in mobile since we show it at the top */}
+                <div className="hidden md:block w-full md:w-1/2 relative aspect-[16/10]">
                   <Image
                     src={story.image.url}
                     alt={story.title}

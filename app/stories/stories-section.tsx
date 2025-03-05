@@ -42,12 +42,16 @@ export function StoriesSection({ stories }: StoriesSectionProps) {
     <section className="bg-white py-20">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:block">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-[48px] font-bold text-center mb-4 text-[#1e1e1e] font-['Source_Code_Pro']">
-              Stories that make us proud
-            </h2>
-            {/* Mobile Navigation - Moved to top */}
-            <div className="flex md:hidden gap-2">
+          <h2 className="text-[48px] font-bold text-center mb-4 text-[#1e1e1e] font-['Source_Code_Pro']">
+            Stories that make us proud
+          </h2>
+          <p className="text-center mb-8 text-lg text-gray-600 max-w-3xl mx-auto font-['Open_Sans']">
+            By creating a collaborative culture, our teams challenge objectives, finding ways to make things better, always.
+          </p>
+          
+          {/* Mobile Navigation - Below subtitle */}
+          <div className="flex md:hidden justify-end mb-8">
+            <div className="flex gap-2">
               <button
                 className={`p-2 rounded-full border-2 ${
                   !prevBtnEnabled 
@@ -72,9 +76,6 @@ export function StoriesSection({ stories }: StoriesSectionProps) {
               </button>
             </div>
           </div>
-          <p className="text-center mb-12 text-lg text-gray-600 max-w-3xl mx-auto font-['Open_Sans']">
-            By creating a collaborative culture, our teams challenge objectives, finding ways to make things better, always.
-          </p>
         </div>
         
         {/* Mobile Carousel */}
@@ -147,7 +148,9 @@ function StoryCard({ story }: { story: Story }) {
       href={`/cases#${story.id}`}
       className="block bg-[#F8F0F7] rounded-[20px] overflow-hidden"
     >
-      <div className="p-8">
+      {/* Vista Móvil */}
+      <div className="p-8 flex flex-col md:hidden">
+        {/* Logo container primero en móvil */}
         <div className="w-full bg-white rounded-[12px] border border-gray-100 p-8 mb-8">
           <div className="relative w-full aspect-[3/1]">
             <Image
@@ -155,12 +158,12 @@ function StoryCard({ story }: { story: Story }) {
               alt={story.title}
               fill
               className="object-contain"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 768px) 100vw"
             />
           </div>
         </div>
         <div className="mb-6">
-          <span className="inline-block px-4 py-1.5 bg-[#955D95] text-white text-sm rounded-full font-['Source_Code_Pro']">
+          <span className="inline-block px-4 py-1.5 bg-[#955D95] text-white text-sm rounded-full font-['Source_Code_Pro'] text-left">
             {story.category}
           </span>
         </div>
@@ -170,7 +173,44 @@ function StoryCard({ story }: { story: Story }) {
         <p className="text-[#1e1e1e] font-['Source_Code_Pro'] mb-8 text-base leading-relaxed">
           {story.shortDescription}
         </p>
-        <div className="inline-flex items-center px-6 py-2.5 border-2 border-[#D74B7C] text-[#D74B7C] rounded-full font-['Source_Code_Pro'] hover:bg-[#D74B7C] hover:text-white transition-colors cursor-pointer">
+        <div className="flex items-center px-6 py-2.5 border-2 border-[#D74B7C] text-[#D74B7C] rounded-full font-['Source_Code_Pro'] hover:bg-[#D74B7C] hover:text-white transition-colors cursor-pointer w-fit">
+          See full case
+          <svg 
+            className="w-5 h-5 ml-2" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </div>
+      </div>
+
+      {/* Vista Desktop */}
+      <div className="p-8 flex-col hidden md:flex">
+        <div className="mb-6">
+          <span className="inline-block px-4 py-1.5 bg-[#955D95] text-white text-sm rounded-full font-['Source_Code_Pro']">
+            {story.category}
+          </span>
+        </div>
+        <div className="w-full bg-white rounded-[12px] border border-gray-100 p-8 mb-8">
+          <div className="relative w-full aspect-[3/1]">
+            <Image
+              src={story.image.url}
+              alt={story.title}
+              fill
+              className="object-contain"
+              sizes="(max-width: 1200px) 50vw, 33vw"
+            />
+          </div>
+        </div>
+        <h3 className="text-2xl font-bold mb-4 text-[#1e1e1e] font-['Source_Code_Pro'] leading-tight">
+          {story.title}
+        </h3>
+        <p className="text-[#1e1e1e] font-['Source_Code_Pro'] mb-8 text-base leading-relaxed">
+          {story.shortDescription}
+        </p>
+        <div className="flex items-center px-6 py-2.5 border-2 border-[#D74B7C] text-[#D74B7C] rounded-full font-['Source_Code_Pro'] hover:bg-[#D74B7C] hover:text-white transition-colors cursor-pointer w-fit">
           See full case
           <svg 
             className="w-5 h-5 ml-2" 
